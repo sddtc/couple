@@ -1,0 +1,67 @@
+@CHARSET "UTF-8";
+#signup_container {
+    width: 420px;
+    border: 1px solid #ddd;
+    padding: 0px 0px;
+    margin: 80px 0 0 240px;
+}
+#signup_header {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0 10px 20px;
+    background-color: #F9F9F9;
+}
+
+#signup_header h1, #login_header h1{
+    margin-bottom: 0px;
+}
+
+#signup_form{
+    padding: 20px 20px 0px 20px;
+    margin-bottom: 10px;
+}
+
+#signup_form .actions{
+    margin-top: 20px;
+}
+
+#login_div{
+    float: right;
+    margin-right: 20px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+.app_div_container {
+    width: 420px;
+    border: 1px solid #ddd;
+    padding: 0px 0px;
+    margin: 80px 0 0 240px;
+}
+
+.app_div_header {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0 10px 20px;
+    background-color: #F9F9F9;
+}
+
+.app_div_header h1{
+    margin-bottom: 0px;
+}
+
+#app_form{
+    padding: 20px 20px 0px 20px;
+    margin-bottom: 10px;
+}
+
+#app_form .actions{
+    margin-top: 20px;
+}
+
+#login_header .signup_link{
+    float: right;
+    margin: 10px 20px 0 0;
+}
+
+.app_form input[type=text], .app_form input[type=password]{
+	margin: 5px 0 15px 0px;
+}

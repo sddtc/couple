@@ -3,19 +3,14 @@
 <html lang="zh-cn">
 <head>
     <meta charset="utf-8" />
-    <title>Signup - Couple</title> 
+    <title>注册 - couple</title> 
     <meta name="keywords" content="couple" />
     <meta name="description" content="can we be couple." />
-    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link rel="stylesheet" href="http://markable.in/site_media/static/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://markable.in/site_media/static/css/style.css">
-    <link rel="stylesheet" href="http://markable.in/site_media/static/account/css/account.css" />
-    
-    <script src="http://markable.in/site_media/static/js/jquery-1.7.1.min.1.js"></script>
-    <script src="resources/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../resources/css/public/style.css">
+    <link rel="stylesheet" href="../../resources/css/account.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="../../resources/js/bootstrap.min.js"></script>
 </head>
 
 <body id="">
@@ -23,15 +18,15 @@
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
-            <a class="brand" href="/couple" style="font-size:20px;">Couple
-                <span style="font-size: 12px; margin-left: 0px; font-weight: bold;">c</span>
+            <a class="brand" href="/couple" style="font-size:20px;">couple
+                <span style="font-size: 12px; margin-left: 0px; font-weight: bold;">[cp]</span>
             </a>
-            <ul class="nav">
+            <ul class="nav pull-right">
                 <li class="dropdown">
                     <a href="#"
                       class="dropdown-toggle"
                       data-toggle="dropdown">
-                        Help <b class="caret"></b>
+                        其它 <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="http://markable.in/file/fa30c686-9dc0-11e1-8ea2-984be164924a/" target="_blank">FAQ</a></li>
@@ -40,12 +35,6 @@
                         <li><a href="javascript:UserVoice.showPopupWidget();">Support</a></li>
                     </ul>
                 </li>
-            </ul>
-            <ul class="nav pull-right">
-                <li>
-                    <a href="/account/login/" class="nav_item">Login</a>                    
-                </li>
-                <li><a href="/account/signup/" style="color: #6cb653;" class="nav_item">Signup</a></li>
             </ul>
         </div>
     </div>
@@ -56,11 +45,11 @@
 
 <div id="signup_container" class="">
     <div id="signup_header">
-        <div id="login_div"><a href="/account/login/">Log In</a></div>
-        <h1>Sign Up</h1>
+        <div id="login_div"><a href="${pageContext.request.contextPath}/account/login/">登 陆</a></div>
+        <h1>注 册</h1>
     </div>
     
-    <form id="signup_form" method="post" action="${pageContext.request.contextPath}/account/signup" class="app_form">
+    <form id="signup_form" method="post" class="app_form">
         <fieldset>
             <input name="nick_name" maxlength="30" placeholder="User Name" type="text" class="span5" id="nick_name" />
             <input id="email" type="text" placeholder="Email" class="span5" name="email" />
@@ -72,7 +61,7 @@
         </p>
         <div class="actions">
             <button type="submit" class="btn btn-success btn-large">
-                Sign Up
+                注 册
             </button>
         </div>
     </form>
@@ -85,16 +74,11 @@
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="Couple: web editor." data-url="http://prouis.com" data-counturl="http://prouis.com">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </p>
-<a href="/">Couple.</a>
-|
-<a href="#">FAQ</a>
-|
-<a href="mailto:changhbaga@gmail.com">Contact</a>
-|
-<a href="/sddtc">Terms</a>
-|
-<a href="/privacy">Privacy</a>
+<a href="https://twitter.com/sddtc_" target="_blank">@sddtc</a>
 </div>
 </div>
+
+<script type="text/javascript">
+</script>
 </body>
 </html>
