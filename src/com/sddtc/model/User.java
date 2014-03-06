@@ -7,34 +7,48 @@ import java.util.Date;
  *
  */
 public class User {
-	
-	private int id;
-	
-	private String login_id;
-	
-	private String password;
-	
-	private String nick_name;
-	
-	private String auth_code;
-	
-	private Date created_time;
+    
+    private int id;
+    
+    private String loginId;
+    
+    private String password;
+    
+    private String name;
+    
+    private Date create_date;
 
-	public int getId() {
-		return id;
-	}
+    /**
+     * 
+     * @return {@link #id id} 
+     **/
+    public int getId() {
+        return id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    /**
+     * 
+     * @param id {@link #id id} 
+     **/
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public String getLogin_id() {
-		return login_id;
-	}
+    /**
+     * 
+     * @return {@link #loginId loginId} 
+     **/
+    public String getLoginId() {
+        return loginId;
+    }
 
-	public void setLogin_id(String login_id) {
-		this.login_id = login_id;
-	}
+    /**
+     * 
+     * @param loginId {@link #loginId loginId} 
+     **/
+    public void setLoginId(String loginId) {
+        this.loginId = loginId;
+    }
 
 	public String getPassword() {
 		return password;
@@ -44,32 +58,24 @@ public class User {
 		this.password = password;
 	}
 
-	public String getNick_name() {
-		return nick_name;
+	public String getName() {
+		return name;
 	}
 
-	public void setNick_name(String nick_name) {
-		this.nick_name = nick_name;
-	}
-	
-	public String getAuth_code() {
-		return auth_code;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void setAuth_code(String auth_code) {
-		this.auth_code = auth_code;
+	public Date getCreate_date() {
+		return create_date;
 	}
 
-	public Date getCreated_time() {
-		return created_time;
-	}
-
-	public void setCreated_time(Date created_time) {
-		this.created_time = created_time;
+	public void setCreate_date(Date create_date) {
+		this.create_date = create_date;
 	}
 
 	@Override
 	public String toString() {
-		return "用户[id=" + id + ", login_id=" + login_id + "]";
+		return "User [loginId=" + loginId + ", name=" + name + "]";
 	}
-}
+ }
