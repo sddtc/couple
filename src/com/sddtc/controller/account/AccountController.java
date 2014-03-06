@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sddtc.model.User;
 import com.sddtc.service.user.UserService;
+import com.sddtc.utils.EmailSender;
 import com.sddtc.utils.param.UserParam;
 
 /**
