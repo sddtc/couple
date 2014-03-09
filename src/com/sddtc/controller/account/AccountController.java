@@ -34,7 +34,7 @@ public class AccountController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String register() {
-        return "/account/login";
+        return "account/login";
     }
 
     /**
