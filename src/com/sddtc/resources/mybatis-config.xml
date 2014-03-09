@@ -14,7 +14,7 @@
     </typeAliases>
     
     <mappers>  
-       <mapper resource="com/sddtc/mapper/FacewordMapper.xml" />
        <mapper resource="com/sddtc/mapper/UserMapper.xml" />
+       <mapper resource="com/sddtc/mapper/FacewordMapper.xml" />
     </mappers>  
 </configuration>
