@@ -24,7 +24,7 @@ public class UserController {
 
     @RequestMapping(value="/user/{id}")
     public ModelAndView home(@PathVariable Long id,HttpServletRequest req) {
-        ModelAndView mv = new ModelAndView("redirect:/");
+        ModelAndView mv = new ModelAndView("user/home");
         UserParam param = new UserParam();
         param.setId(id);
         User user = userService.getUser(param);
