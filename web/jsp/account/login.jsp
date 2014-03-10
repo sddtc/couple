@@ -54,7 +54,7 @@
             <!-- <input name="nick_name" maxlength="30" placeholder="User Name" type="text" class="span5" id="nick_name" />
             <input id="password1" type="password" placeholder="Password" class="span5" name="password1" />
             <input id="password2" type="password" placeholder="Confirm Password" class="span5" name="password2" /> -->
-            <input id="email" type="text" placeholder="Email" class="span5" name="email" />
+            <input id="email" type="text" placeholder="Email" class="span5" name="loginId" />
         </fieldset>
         <p class="grey-text">
             By clicking "Sign Up", you are indicating that you have read and agree to the <a href="/tos">Terms of Service</a> and <a href="/privacy">Privacy Policy</a>.
