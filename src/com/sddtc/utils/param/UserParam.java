@@ -9,9 +9,9 @@ public class UserParam {
     /**主键*/
     private Long id;
     /**登陆id*/
-    private String loginId;
+    private String login_id;
     /**用户名*/
-    private String name;
+    private String nick_name;
     /**密码*/
     private String password;
     
@@ -19,73 +19,45 @@ public class UserParam {
     public UserParam() {
         
     }
-    
-    public UserParam(String loginId) {
-        this.loginId = loginId;
-    }
 
-    /**
-     * 
-     * @return {@link #id id} 
-     **/
-    public Long getId() {
-        return id;
-    }
 
-    /**
-     * 
-     * @param id {@link #id id} 
-     **/
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    /**
-     * 
-     * @return {@link #loginId loginId} 
-     **/
-    public String getLoginId() {
-        return loginId;
-    }
 
-    /**
-     * 
-     * @param loginId {@link #loginId loginId} 
-     **/
-    public void setLoginId(String loginId) {
-        this.loginId = loginId;
-    }
-    
-    /**
-     * 
-     * @return {@link #name name} 
-     **/
-    public String getName() {
-        return name;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    /**
-     * 
-     * @param nickName {@link #name name} 
-     **/
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    /**
-     * 
-     * @return {@link #password password} 
-     **/
-    public String getPassword() {
-        return password;
-    }
+	public String getLogin_id() {
+		return login_id;
+	}
 
-    /**
-     * 
-     * @param password {@link #password password} 
-     **/
-    public void setPassword(String password) {
-        this.password = password;
-    }
+
+	public void setLogin_id(String login_id) {
+		this.login_id = login_id;
+	}
+
+
+	public String getNick_name() {
+		return nick_name;
+	}
+
+
+	public void setNick_name(String nick_name) {
+		this.nick_name = nick_name;
+	}
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 }
 

@@ -10,45 +10,31 @@ public class User {
     
     private int id;
     
-    private String loginId;
+    private String login_id;
     
     private String password;
     
-    private String name;
+    private String nick_name;
     
-    private Date create_date;
+    private String auth_code;
+    
+    private Date create_time;
 
-    /**
-     * 
-     * @return {@link #id id} 
-     **/
-    public int getId() {
-        return id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    /**
-     * 
-     * @param id {@link #id id} 
-     **/
-    public void setId(int id) {
-        this.id = id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    /**
-     * 
-     * @return {@link #loginId loginId} 
-     **/
-    public String getLoginId() {
-        return loginId;
-    }
+	public String getLogin_id() {
+		return login_id;
+	}
 
-    /**
-     * 
-     * @param loginId {@link #loginId loginId} 
-     **/
-    public void setLoginId(String loginId) {
-        this.loginId = loginId;
-    }
+	public void setLogin_id(String login_id) {
+		this.login_id = login_id;
+	}
 
 	public String getPassword() {
 		return password;
@@ -58,24 +44,33 @@ public class User {
 		this.password = password;
 	}
 
-	public String getName() {
-		return name;
+	public String getNick_name() {
+		return nick_name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNick_name(String nick_name) {
+		this.nick_name = nick_name;
 	}
 
-	public Date getCreate_date() {
-		return create_date;
+	public String getAuth_code() {
+		return auth_code;
 	}
 
-	public void setCreate_date(Date create_date) {
-		this.create_date = create_date;
+	public void setAuth_code(String auth_code) {
+		this.auth_code = auth_code;
+	}
+
+	public Date getCreate_time() {
+		return create_time;
+	}
+
+	public void setCreate_time(Date create_time) {
+		this.create_time = create_time;
 	}
 
 	@Override
 	public String toString() {
-		return "User [loginId=" + loginId + ", name=" + name + "]";
+		return "User [id=" + id + ", login_id=" + login_id + "]";
 	}
- }
+
+}

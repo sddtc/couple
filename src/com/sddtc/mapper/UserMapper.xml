@@ -2,21 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 <mapper namespace="com.sddtc.mapper.UserMapper">
     <insert id="add" parameterType="User" useGeneratedKeys="true" keyProperty="id">
-      insert into t_cp_user(loginId, password, name, create_date)
-      values (#{loginId}, #{password}, #{name}, #{create_date})
+      insert into t_cp_user(login_id, password, nick_name, create_time)
+      values (#{login_id}, #{password}, #{nick_name}, #{create_time})
     </insert>
     
     <select id="get" parameterType="UserParam" resultType="User">
       select * from t_cp_user 
       <where>
 	      <if test="loginId != null">
-	        loginId = #{loginId}
+	        login_id = #{login_id}
 	      </if>
 	      <if test="password != null">
 	        and password = #{password}
 	      </if>
 	      <if test="name != null">
-	        and name = #{name}
+	        and nick_name = #{nick_name}
 	      </if>
 	      <if test="id != null">
 	        and id = #{id}
