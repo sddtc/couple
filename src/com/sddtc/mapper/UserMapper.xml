@@ -9,13 +9,13 @@
     <select id="get" parameterType="UserParam" resultType="User">
       select * from t_cp_user 
       <where>
-	      <if test="loginId != null">
+	      <if test="login_id != null">
 	        login_id = #{login_id}
 	      </if>
 	      <if test="password != null">
 	        and password = #{password}
 	      </if>
-	      <if test="name != null">
+	      <if test="nick_name != null">
 	        and nick_name = #{nick_name}
 	      </if>
 	      <if test="id != null">
