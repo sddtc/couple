@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService{
     private UserMapper userMapper;
     
     public void addUser(User user) {
-        UserParam param = new UserParam(user.getLoginId());
+        UserParam param = new UserParam(user.getLogin_id());
         User exist = getUser(param);
 
         if(null != exist) {
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService{
            userMapper.update(exist);
            logger.info("更新用户成功", user.toString());
         } else {
-            user.setCreate_date(new Date());
+            user.setCreate_time(new Date());
             userMapper.add(user);
             logger.debug("用户添加成功",user.toString());
         }

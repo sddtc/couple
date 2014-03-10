@@ -30,7 +30,7 @@ public class UserController {
         User user = userService.getUser(param);
         
         if(null != user) {
-            mv.addObject("name", user.getName());
+            mv.addObject("name", user.getNick_name());
         }
 
         return mv;

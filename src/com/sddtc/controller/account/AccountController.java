@@ -45,11 +45,11 @@ public class AccountController {
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String doRegister(@ModelAttribute("user") User user) {
-        String email = user.getLoginId();
+        String email = user.getLogin_id();
         logger.info("待登陆邮箱账号:{}", email);
         
         String nickName = email.split("@")[0];
-        user.setName(nickName);
+        user.setNick_name(nickName);
         long timeCode = System.currentTimeMillis();
         String pwd = nickName + '@' + timeCode;
         user.setPassword(pwd);
@@ -75,11 +75,11 @@ public class AccountController {
             String nickName = auth.split("@")[0];
             
             UserParam param = new UserParam();
-            param.setName(nickName);
+            param.setNick_name(nickName);
             param.setPassword(auth);
             User user = userService.getUser(param);
             if(null != user) {
-                logger.info("欢迎{}回来:{}", user.getName(), new Date());
+                logger.info("欢迎{}回来:{}", user.getNick_name(), new Date());
                 return "redirect:/user/" + user.getId();
             } else {
                 logger.info("验证失败,登陆失败:{}", nickName);

@@ -20,6 +20,10 @@ public class UserParam {
         
     }
 
+	public UserParam(String login_id) {
+		this.login_id = login_id;
+	}
+
 
 	public Long getId() {
 		return id;
