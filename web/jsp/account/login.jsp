@@ -6,11 +6,11 @@
     <title>注册 - couple</title> 
     <meta name="keywords" content="couple" />
     <meta name="description" content="can we be couple." />
-    <link rel="stylesheet" href="./../resources/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./../resources/css/public/style.css">
-    <link rel="stylesheet" href="./../resources/css/account.css" />
+    <link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../resources/css/public/style.css">
+    <link rel="stylesheet" href="../../resources/css/account.css" />
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="./../resources/js/bootstrap.min.js"></script>
+    <script src="../../resources/js/bootstrap.min.js"></script>
 </head>
 
 <body id="">
@@ -51,17 +51,17 @@
     
     <form id="signup_form" method="post" class="app_form">
         <fieldset>
-            <input name="nick_name" maxlength="30" placeholder="User Name" type="text" class="span5" id="nick_name" />
-            <input id="email" type="text" placeholder="Email" class="span5" name="email" />
+            <!-- <input name="nick_name" maxlength="30" placeholder="User Name" type="text" class="span5" id="nick_name" />
             <input id="password1" type="password" placeholder="Password" class="span5" name="password1" />
-            <input id="password2" type="password" placeholder="Confirm Password" class="span5" name="password2" />
+            <input id="password2" type="password" placeholder="Confirm Password" class="span5" name="password2" /> -->
+            <input id="email" type="text" placeholder="Email" class="span5" name="email" />
         </fieldset>
         <p class="grey-text">
             By clicking "Sign Up", you are indicating that you have read and agree to the <a href="/tos">Terms of Service</a> and <a href="/privacy">Privacy Policy</a>.
         </p>
         <div class="actions">
             <button type="submit" class="btn btn-success btn-large">
-                注 册
+                发送验证邮件到邮箱
             </button>
         </div>
     </form>
