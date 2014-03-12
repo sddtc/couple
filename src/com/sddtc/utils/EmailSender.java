@@ -18,13 +18,13 @@ public class EmailSender {
         try {
             HtmlEmail htmlEmail = new HtmlEmail();
             htmlEmail.setHostName("smtp.163.com");//你的邮件服务器的地址  
-            htmlEmail.setAuthentication("xxx", "password");//如果你的邮件服务器设置了密码，请输入密码，否则此语句可以忽略  
+            htmlEmail.setAuthentication("sddtc_ch@163.com", "SDDTCisbaga");//如果你的邮件服务器设置了密码，请输入密码，否则此语句可以忽略  
             htmlEmail.addTo(email, null);
-            htmlEmail.setFrom("xxx", "sddtc");//发件人  
+            htmlEmail.setFrom("sddtc_ch@163.com", "couple");//发件人  
             htmlEmail.setCharset("UTF-8");
             htmlEmail.setSubject("couple登录验证邮件");
             htmlEmail.setMsg("hello guys");
-            String testEditor = "couple：登录验证邮件，登陆请 <a href="+URL + auth +">  点击   </a>";
+            String testEditor = "couple：登录验证邮件，登陆请 <a href="+URL + auth +" target='_blank'>  点击该链接返回couple   </a>";
             htmlEmail.setHtmlMsg(testEditor);  
             htmlEmail.send();
             logger.info("向邮箱:{}发送登陆验证邮件成功", email);
