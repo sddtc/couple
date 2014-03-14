@@ -6,7 +6,7 @@ package com.sddtc.utils.accounts.factory;
  */
 public class EmailFactory {
 	public void send() {
-		
+		//...
 	}
 
 }
