@@ -30,7 +30,8 @@
 						<a href="account/login">注册</a>
 					</c:when>
 					<c:otherwise>
-						<li><a href="accounts" class="nav_item">${currUser.nick_name}</a></li>
+						<li><a href="" class="nav_item">${currUser.nick_name}</a></li>
+						<li><a href="account/logout" class="nav_item">登出</a></li>
 					</c:otherwise>
 				</c:choose>
 			</ul>
