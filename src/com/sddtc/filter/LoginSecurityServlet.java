@@ -28,6 +28,8 @@ public class LoginSecurityServlet extends HttpServlet implements Filter {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	private String[] ignoreTypes;
+
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
@@ -36,12 +38,25 @@ public class LoginSecurityServlet extends HttpServlet implements Filter {
 		HttpSession session = req.getSession(true);
 		String url = req.getRequestURI();
 		User user = (User) session.getAttribute("currUser");
+		boolean ignoreType = false;
 
-		if (null == user) {
-			if (StringUtils.isNotBlank(url) && url.indexOf("login") < 0
-					&& url.indexOf("authLogin") < 0) {
-				res.sendRedirect(req.getContextPath() + "/account/login");
-				return;
+		if (null != ignoreTypes) {
+			for (int i = 0; i < ignoreTypes.length; i++) {
+				if (url.endsWith("." + ignoreTypes[i])) {
+					ignoreType = true;
+					break;
+				}
+			}
+
+			if (!ignoreType) {
+				if (null == user) {
+					if (StringUtils.isNotBlank(url) && url.indexOf("login") < 0
+							&& url.indexOf("authLogin") < 0) {
+						res.sendRedirect(req.getContextPath()
+								+ "/account/login");
+						return;
+					}
+				}
 			}
 		}
 
@@ -51,5 +66,9 @@ public class LoginSecurityServlet extends HttpServlet implements Filter {
 
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
+		String types = arg0.getInitParameter("ignoreTypes");
+		if (StringUtils.isNotBlank(types)) {
+			this.ignoreTypes = types.split(",");
+		}
 	}
 }

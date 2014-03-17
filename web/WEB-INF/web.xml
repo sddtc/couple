@@ -65,6 +65,10 @@
 	<filter>
 	    <filter-name>LoginSecurityServlet</filter-name>
 	    <filter-class>com.sddtc.filter.LoginSecurityServlet</filter-class>
+	    <init-param>
+	        <param-name>ignoreTypes</param-name>
+	        <param-value>gif,bmp,png,jpg,js,flash,css</param-value>
+	    </init-param>
 	</filter>
 	<filter-mapping>
 	    <filter-name>LoginSecurityServlet</filter-name>
