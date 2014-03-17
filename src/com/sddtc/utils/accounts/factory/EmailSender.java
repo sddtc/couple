@@ -1,4 +1,4 @@
-package com.sddtc.utils;
+package com.sddtc.utils.accounts.factory;
 
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
@@ -9,12 +9,12 @@ import org.slf4j.LoggerFactory;
  * @author sddtc
  *
  */
-public class EmailSender {
+public class EmailSender implements Sender{
     private static Logger logger = LoggerFactory.getLogger(EmailSender.class);
     private static String URL = "http://localhost:8888/couple/account/authLogin?auth=";
     
     //发送邮件验证
-    public static void sender(String email, String auth) {
+    public void send(String email, String auth) {
         try {
             HtmlEmail htmlEmail = new HtmlEmail();
             htmlEmail.setHostName("smtp.163.com");//你的邮件服务器的地址  
