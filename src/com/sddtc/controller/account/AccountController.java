@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sddtc.model.User;
 import com.sddtc.service.user.UserService;
-import com.sddtc.utils.EmailSender;
+import com.sddtc.utils.accounts.factory.Provider;
+import com.sddtc.utils.accounts.factory.SendEmailFactory;
+import com.sddtc.utils.accounts.factory.Sender;
 import com.sddtc.utils.param.UserParam;
 
 /**
@@ -55,7 +57,10 @@ public class AccountController {
         user.setPassword(pwd);
 
         userService.addUser(user);
-        EmailSender.sender(email, pwd);
+        
+        Provider provider = new SendEmailFactory();
+        Sender sender = provider.produce();
+        sender.send(email, pwd);
 
         return "redirect:/user/" + user.getId();
     }
