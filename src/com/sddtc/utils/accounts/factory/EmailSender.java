@@ -18,7 +18,7 @@ public class EmailSender implements Sender{
         try {
             HtmlEmail htmlEmail = new HtmlEmail();
             htmlEmail.setHostName("smtp.163.com");//你的邮件服务器的地址  
-            htmlEmail.setAuthentication("sddtc_ch@163.com", "SDDTCisbaga");//如果你的邮件服务器设置了密码，请输入密码，否则此语句可以忽略  
+            htmlEmail.setAuthentication("sddtc_ch@163.com", "xxx");//如果你的邮件服务器设置了密码，请输入密码，否则此语句可以忽略  
             htmlEmail.addTo(email, null);
             htmlEmail.setFrom("sddtc_ch@163.com", "couple");//发件人  
             htmlEmail.setCharset("UTF-8");
