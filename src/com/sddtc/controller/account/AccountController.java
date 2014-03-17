@@ -5,6 +5,7 @@ import java.net.URLDecoder;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +23,8 @@ import com.sddtc.utils.accounts.factory.Sender;
 import com.sddtc.utils.param.UserParam;
 
 /**
+ * 
+ * 登陆,登出
  * @author sddtc
  *
  */
@@ -83,8 +86,11 @@ public class AccountController {
             param.setNick_name(nickName);
             param.setPassword(auth);
             User user = userService.getUser(param);
+            
             if(null != user) {
                 logger.info("欢迎{}回来:{}", user.getNick_name(), new Date());
+                request.getSession(false).setAttribute("currUser", user);
+                
                 return "redirect:/user/" + user.getId();
             } else {
                 logger.info("验证失败,登陆失败:{}", nickName);
@@ -94,5 +100,15 @@ public class AccountController {
             logger.error("auth解码出错", e);
         }
         return "redirect:/account/error";
+    }
+    
+    @RequestMapping(value="logout", method=RequestMethod.GET)
+    public String logout(HttpServletRequest request) {
+    	HttpSession session = request.getSession(false);
+    	if(null != session) {
+    		session.removeAttribute("currUser");
+    	}
+    	
+    	return "redirect:/";
     }
 }
