@@ -5,6 +5,8 @@ package com.sddtc.utils.accounts;
  *
  */
 public interface Provider {
-
+	/**
+	 * @return
+	 */
 	public Provider produce();
 }
