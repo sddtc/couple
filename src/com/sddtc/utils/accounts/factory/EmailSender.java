@@ -11,14 +11,14 @@ import org.slf4j.LoggerFactory;
  */
 public class EmailSender implements Sender{
     private static Logger logger = LoggerFactory.getLogger(EmailSender.class);
-    private static String URL = "http://localhost:8888/couple/account/authLogin?auth=";
+    private static String URL = "http://localhost:8080/couple/account/authLogin?auth=";
     
     //发送邮件验证
     public void send(String email, String auth) {
         try {
             HtmlEmail htmlEmail = new HtmlEmail();
             htmlEmail.setHostName("smtp.163.com");//你的邮件服务器的地址  
-            htmlEmail.setAuthentication("sddtc_ch@163.com", "SDDTCisbaga");//如果你的邮件服务器设置了密码，请输入密码，否则此语句可以忽略  
+            htmlEmail.setAuthentication("sddtc_ch@163.com", "xxx");//如果你的邮件服务器设置了密码，请输入密码，否则此语句可以忽略  
             htmlEmail.addTo(email, null);
             htmlEmail.setFrom("sddtc_ch@163.com", "couple");//发件人  
             htmlEmail.setCharset("UTF-8");
