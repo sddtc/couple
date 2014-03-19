@@ -64,6 +64,8 @@ a:hover {
 }
 
 .logo {
+  width: 500px;
+  height: 200px;
   background: #2e7bcf url(../images/LOGO.png);
 }
 
