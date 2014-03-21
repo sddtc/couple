@@ -7,8 +7,8 @@ package com.sddtc.utils.accounts.factory;
 public interface Sender {
 	/**
 	 * 发送
-	 * @param email
-	 * @param auth
+	 * @param email email
+	 * @param auth auth-code
 	 */
 	public void send(String email, String auth);
 }
