@@ -27,9 +27,9 @@ public class UserServiceImpl implements UserService{
     @Resource
     private UserMapper userMapper;
     
-    public void addUser(User user) {
+    public void add(User user) {
         UserParam param = new UserParam(user.getLogin_id());
-        User exist = getUser(param);
+        User exist = get(param);
 
         if(null != exist) {
            exist.setPassword(user.getPassword());
@@ -42,8 +42,12 @@ public class UserServiceImpl implements UserService{
         }
     }
 
-    public User getUser(UserParam param) {
+    public User get(UserParam param) {
         User exist = userMapper.get(param);
         return exist;
+    }
+    
+    public void update(User user) {
+    	userMapper.update(user);
     }
 }

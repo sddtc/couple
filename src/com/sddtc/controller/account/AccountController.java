@@ -61,7 +61,7 @@ public class AccountController {
         String pwd = nickName + '@' + timeCode;
         user.setPassword(pwd);
 
-        userService.addUser(user);
+        userService.add(user);
         
         Provider provider = new SendEmailFactory();
         Sender sender = provider.produce();
@@ -87,7 +87,7 @@ public class AccountController {
             UserParam param = new UserParam();
             param.setNick_name(nickName);
             param.setPassword(auth);
-            User user = userService.getUser(param);
+            User user = userService.get(param);
             
             if(null != user) {
                 logger.info("欢迎{}回来:{}", user.getNick_name(), new Date());
@@ -117,5 +117,13 @@ public class AccountController {
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String accounts() {
     	return "account/accounts";
+    }
+    
+    @RequestMapping(value="update", method=RequestMethod.POST)
+    public String update(@ModelAttribute("user") User user) {
+    	System.out.println(user.getNick_name());
+//    	userService.update(user);
+    	
+    	return "redirect:/";
     }
 }

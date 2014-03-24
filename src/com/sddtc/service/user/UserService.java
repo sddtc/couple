@@ -15,12 +15,18 @@ public interface UserService {
      * @param user
      */
     @Transactional
-    public void addUser(User user);
+    public void add(User user);
     
     /**
      * 根据查询条件获取用户
      * @param param 查询条件
      * @return
      */
-    public User getUser(UserParam param);
+    public User get(UserParam param);
+    
+    /**
+     * 更新
+     * @param user
+     */
+    public void update(User user);
 }

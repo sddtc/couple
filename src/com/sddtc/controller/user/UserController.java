@@ -27,7 +27,7 @@ public class UserController {
         ModelAndView mv = new ModelAndView("user/home");
         UserParam param = new UserParam();
         param.setId(id);
-        User user = userService.getUser(param);
+        User user = userService.get(param);
         
         if(null != user) {
             mv.addObject("name", user.getNick_name());
