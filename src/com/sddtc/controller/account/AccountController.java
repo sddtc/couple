@@ -111,4 +111,9 @@ public class AccountController {
     	
     	return "redirect:/";
     }
+    
+    @RequestMapping(value="/", method=RequestMethod.GET)
+    public String accounts() {
+    	return "account/accounts";
+    }
 }
