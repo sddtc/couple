@@ -24,7 +24,9 @@ import com.sddtc.utils.param.UserParam;
 
 /**
  * 
- * 登陆,登出
+ * 1.登陆
+ * 2.登出
+ * 3.帐号相关修改
  * @author sddtc
  *
  */

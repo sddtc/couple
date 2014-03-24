@@ -5,7 +5,7 @@
 	<div class="navbar-inner">
 		<div class="container">
 			<a class="brand" href="/couple" style="font-size: 20px;">couple <span
-				style="font-size: 12px; margin-left: 0px; font-weight: bold;">[cp]</span>
+				style="font-size: 12px; margin-left: 0px; font-weight: bold;"></span>
 			</a>
 			<ul class="nav">
 				<li><a href="/editor/" class="nav_item">二次元CP</a></li>
@@ -27,11 +27,10 @@
 			<ul class="nav pull-right">
 				<c:choose>
 					<c:when test="${currUser eq null}">
-						<a href="account/login">注册</a>
 					</c:when>
 					<c:otherwise>
-						<li><a href="" class="nav_item">${currUser.nick_name}</a></li>
-						<li><a href="account/logout" class="nav_item">登出</a></li>
+						<li><a href="${pageContext.request.contextPath}/account/" class="nav_item">${currUser.nick_name}</a></li>
+						<li><a href="${pageContext.request.contextPath}/account/logout" class="nav_item">登出</a></li>
 					</c:otherwise>
 				</c:choose>
 			</ul>
