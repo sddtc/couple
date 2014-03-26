@@ -25,8 +25,18 @@
     </select>
     
     <update id="update" parameterType="User">
-      update t_cp_user set
-        password = #{password}
+      update t_cp_user
+      <set>
+        <if test="password !=null and password != '' ">
+        password = #{password},
+        </if>
+        <if test="nick_name !=null and nick_name != '' ">
+        nick_name = #{nick_name},
+        </if>
+        <if test="update_time !=null and update_time != '' ">
+        update_time = #{update_time}
+        </if>
+      </set>
       where id = #{id}
     </update>
 </mapper>

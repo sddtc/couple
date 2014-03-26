@@ -22,6 +22,8 @@
 个人资料：<br />
 <form action="update" method="post">
 名号：<input type="text" value="${currUser.nick_name}" name="nick_name"/>
+<input type="hidden" value="${currUser.id}" name="id" />
+<label>${result}</label>
 <input type="submit" />
 </form>
 </body>

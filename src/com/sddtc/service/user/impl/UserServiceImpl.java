@@ -33,12 +33,11 @@ public class UserServiceImpl implements UserService{
 
         if(null != exist) {
            exist.setPassword(user.getPassword());
-           userMapper.update(exist);
-           logger.info("更新用户成功", user.toString());
+           update(exist);
         } else {
             user.setCreate_time(new Date());
             userMapper.add(user);
-            logger.debug("用户添加成功",user.toString());
+            logger.debug("用户添加成功{}",user.toString());
         }
     }
 
@@ -48,6 +47,8 @@ public class UserServiceImpl implements UserService{
     }
     
     public void update(User user) {
+    	user.setUpdate_time(new Date());
     	userMapper.update(user);
+    	logger.info("更新用户成功:{}", user.toString());
     }
 }

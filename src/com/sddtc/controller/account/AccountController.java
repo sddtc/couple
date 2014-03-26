@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.sddtc.model.User;
 import com.sddtc.service.user.UserService;
@@ -85,7 +86,7 @@ public class AccountController {
             String nickName = auth.split("@")[0];
             
             UserParam param = new UserParam();
-            param.setNick_name(nickName);
+//            param.setNick_name(nickName);
             param.setPassword(auth);
             User user = userService.get(param);
             
@@ -120,10 +121,15 @@ public class AccountController {
     }
     
     @RequestMapping(value="update", method=RequestMethod.POST)
-    public String update(@ModelAttribute("user") User user) {
-    	System.out.println(user.getNick_name());
-//    	userService.update(user);
+    public ModelAndView update(@ModelAttribute("user") User user, HttpServletRequest request) {
+    	ModelAndView mv = new ModelAndView("account/accounts");
+    	userService.update(user);
+    	mv.addObject("result", "更新成功");
     	
-    	return "redirect:/";
+    	//update session
+    	request.removeAttribute("currUser");
+    	request.setAttribute("currUser", user);
+    	
+    	return mv;
     }
 }

@@ -19,6 +19,8 @@ public class User {
     private String auth_code;
     
     private Date create_time;
+    
+    private Date update_time;
 
 	public int getId() {
 		return id;
@@ -67,10 +69,18 @@ public class User {
 	public void setCreate_time(Date create_time) {
 		this.create_time = create_time;
 	}
+	
+	public Date getUpdate_time() {
+		return update_time;
+	}
+
+	public void setUpdate_time(Date update_time) {
+		this.update_time = update_time;
+	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", login_id=" + login_id + "]";
+		return "User [id=" + id + ", 用户名=" + nick_name + ",更新时间为: " + update_time  + "]";
 	}
 
 }
