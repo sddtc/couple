@@ -127,7 +127,6 @@ public class AccountController {
     	mv.addObject("result", "更新成功");
     	
     	//update session
-    	request.removeAttribute("currUser");
     	request.setAttribute("currUser", user);
     	
     	return mv;
