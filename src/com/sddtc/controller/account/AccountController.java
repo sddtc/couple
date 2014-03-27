@@ -86,7 +86,6 @@ public class AccountController {
             String nickName = auth.split("@")[0];
             
             UserParam param = new UserParam();
-//            param.setNick_name(nickName);
             param.setPassword(auth);
             User user = userService.get(param);
             
