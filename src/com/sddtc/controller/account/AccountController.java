@@ -54,7 +54,6 @@ public class AccountController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String doRegister(@ModelAttribute("user") User user) {
         String email = user.getLogin_id();
-        logger.info("待登陆邮箱账号:{}", email);
         
         String nickName = email.split("@")[0];
         user.setNick_name(nickName);
@@ -82,7 +81,6 @@ public class AccountController {
         
         try {
             auth = URLDecoder.decode(auth, "utf-8");
-            logger.info("通过登陆邮件确认auth:{}", auth);
             String nickName = auth.split("@")[0];
             
             UserParam param = new UserParam();
@@ -90,7 +88,6 @@ public class AccountController {
             User user = userService.get(param);
             
             if(null != user) {
-                logger.info("欢迎{}回来:{}", user.getNick_name(), new Date());
                 request.getSession(false).setAttribute("currUser", user);
                 
                 return "redirect:/user/" + user.getId();
