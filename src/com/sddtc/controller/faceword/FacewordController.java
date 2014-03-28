@@ -38,7 +38,6 @@ public class FacewordController {
 			view.addStaticAttribute(face.getId(), face.getText());
 		}
 		
-		logger.info("一共有{}个颜文字表情", result.size());
 		return view;
 	}
 	
