@@ -20,6 +20,8 @@ import com.sddtc.model.User;
 /**
  * @author sddtc
  * 
+ * 登陆相关拦截器
+ * 
  */
 public class LoginSecurityServlet extends HttpServlet implements Filter {
 
