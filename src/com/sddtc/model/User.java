@@ -7,19 +7,19 @@ import java.util.Date;
  *
  */
 public class User {
-    
+    /**主键*/
     private int id;
-    
+    /**登陆id-邮箱*/
     private String login_id;
-    
+    /**密码*/
     private String password;
-    
+    /**名号*/
     private String nick_name;
-    
+    /**验证code*/
     private String auth_code;
-    
+    /**创建时间*/
     private Date create_time;
-    
+    /**更新时间*/
     private Date update_time;
 
 	public int getId() {
