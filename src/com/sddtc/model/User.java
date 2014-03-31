@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  * @author sddtc
- *
+ * 用户
  */
 public class User {
     /**主键*/
