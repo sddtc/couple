@@ -30,8 +30,8 @@
 				<tr>
 					<td>头像:</td>
 					<td>
-					<img alt="small_icon" src="http://img3.douban.com/icon/u54215155-86.jpg" style="margin:10px;float:left">
-					<img alt="big_icon" src="http://img3.douban.com/icon/ul54215155-86.jpg" style="margin:10px;float:left">
+					<img alt="small_icon" src="#" style="margin:10px;float:left">
+					<img alt="big_icon" src="#" style="margin:10px;float:left">
 					<a href="user_icon" style="margin:10px;float:left">更新</a>
 					</td>
 				</tr>
