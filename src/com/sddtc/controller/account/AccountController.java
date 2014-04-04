@@ -122,7 +122,8 @@ public class AccountController {
     	mv.addObject("result", "更新成功");
     	
     	//update session
-    	request.setAttribute("currUser", user);
+    	HttpSession session = request.getSession(false);
+    	session.setAttribute("currUser", user);
     	
     	return mv;
     }
