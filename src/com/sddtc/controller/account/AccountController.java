@@ -127,4 +127,10 @@ public class AccountController {
     	
     	return mv;
     }
+    
+    @RequestMapping(value="user_icon", method=RequestMethod.GET)
+    public String updateUserIcon() {
+    	
+    	return "account/userIcon";
+    }
 }
