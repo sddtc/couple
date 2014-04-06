@@ -1,10 +1,13 @@
 package com.sddtc.controller.account;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.swing.plaf.multi.MultiFileChooserUI;
+import javax.swing.plaf.multi.MultiPanelUI;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +16,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sddtc.model.User;
@@ -136,7 +141,15 @@ public class AccountController {
     }
     
     @RequestMapping(value="uploadIcon", method=RequestMethod.POST)
-    public String uploadIcon() {
+    public String uploadIcon(@RequestParam("file") MultipartFile file) {
+    	if(!file.isEmpty()) {
+    		try {
+				byte[] bytes = file.getBytes();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    	} 
     	
     	return "redirect:/account/user_icon";
     }
