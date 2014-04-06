@@ -27,6 +27,7 @@ import com.sddtc.utils.param.UserParam;
  * 1.登陆
  * 2.登出
  * 3.帐号相关修改
+ *   a.上传头像
  * @author sddtc
  *
  */
@@ -132,5 +133,11 @@ public class AccountController {
     public String updateUserIcon() {
     	
     	return "account/userIcon";
+    }
+    
+    @RequestMapping(value="uploadIcon", method=RequestMethod.POST)
+    public String uploadIcon() {
+    	
+    	return "redirect:/account/user_icon";
     }
 }

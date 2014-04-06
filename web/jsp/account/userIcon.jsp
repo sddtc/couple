@@ -4,9 +4,38 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>上传头像</title>
+<title>${currUser.nick_name}的帐号-上传头像</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/public/style.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/account.css" />
 </head>
 <body>
+<jsp:include page="../head.jsp" />
+<div class="account_content">
+	<form action="uploadIcon" method="post" enctype="multipart/form-data">
+		<table>
+			<tbody>
+				<tr>
+					<td>
+					<input type="file" name="file" />
+					</td>
+					<td>
+					<input type="submit" value="更新"/>
+					</td>
+				</tr>
+				<tr>
+					<td>${result}</td>
+					<td><input type="hidden" value="${currUser.id}" name="id" /></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="保存小头像"/></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</div>
 
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-latest.js"></script>
 </body>
 </html>
