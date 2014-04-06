@@ -1,13 +1,12 @@
 package com.sddtc.controller.account;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.swing.plaf.multi.MultiFileChooserUI;
-import javax.swing.plaf.multi.MultiPanelUI;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -141,10 +140,13 @@ public class AccountController {
     }
     
     @RequestMapping(value="uploadIcon", method=RequestMethod.POST)
-    public String uploadIcon(@RequestParam("file") MultipartFile file) {
+    public String uploadIcon(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
+    	String path = request.getSession(false).getServletContext().getRealPath("");
+    	
     	if(!file.isEmpty()) {
     		try {
-				byte[] bytes = file.getBytes();
+				String destPath = "/image/user_icon";
+				file.transferTo(new File(destPath));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
