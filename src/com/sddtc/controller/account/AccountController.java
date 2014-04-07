@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.sddtc.model.User;
 import com.sddtc.service.user.UserService;
+import com.sddtc.utils.PathUtil;
 import com.sddtc.utils.accounts.factory.Provider;
 import com.sddtc.utils.accounts.factory.SendEmailFactory;
 import com.sddtc.utils.accounts.factory.Sender;
@@ -114,12 +115,12 @@ public class AccountController {
     	
     	return "redirect:/";
     }
-    
+
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String accounts() {
     	return "account/accounts";
     }
-    
+
     @RequestMapping(value="update", method=RequestMethod.POST)
     public ModelAndView update(@ModelAttribute("user") User user, HttpServletRequest request) {
     	ModelAndView mv = new ModelAndView("account/accounts");
@@ -132,21 +133,31 @@ public class AccountController {
     	
     	return mv;
     }
-    
+
     @RequestMapping(value="user_icon", method=RequestMethod.GET)
     public String updateUserIcon() {
     	
     	return "account/userIcon";
     }
-    
+
     @RequestMapping(value="uploadIcon", method=RequestMethod.POST)
     public String uploadIcon(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
-    	String path = request.getSession(false).getServletContext().getRealPath("");
+    	HttpSession session = request.getSession(false);
+    	User currUser = getCurrUserInSession(session);
+    	String path = session.getServletContext().getRealPath("");
     	
+    	if(null != currUser) {
+    		int id = currUser.getId();
+    		path = path + PathUtil.getImageOfUserIconPath(id);
+    	}
+
     	if(!file.isEmpty()) {
     		try {
-				String destPath = "/image/user_icon";
-				file.transferTo(new File(destPath));
+    			File dest = new File(path);
+    			if(!dest.exists()) {
+    				dest.mkdirs();
+    			}
+				file.transferTo(new File(path+file.getOriginalFilename()));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -154,5 +165,19 @@ public class AccountController {
     	} 
     	
     	return "redirect:/account/user_icon";
+    }
+    
+    /**
+     * 获取session中的用户对象
+     * @param session
+     * @return
+     */
+    private User getCurrUserInSession(HttpSession session) {
+    	if(null != session) {
+    		User user = (User) session.getAttribute("currUser");
+    		return user;
+    	}
+    	
+    	return null;
     }
 }
