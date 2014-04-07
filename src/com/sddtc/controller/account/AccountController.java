@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +22,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.sddtc.model.User;
 import com.sddtc.service.user.UserService;
-import com.sddtc.utils.PathUtil;
 import com.sddtc.utils.accounts.factory.Provider;
 import com.sddtc.utils.accounts.factory.SendEmailFactory;
 import com.sddtc.utils.accounts.factory.Sender;
@@ -140,27 +140,27 @@ public class AccountController {
     	return "account/userIcon";
     }
 
+	@Value("${file.image.icon.path}")
+	private String userIconFilePath;
+	
     @RequestMapping(value="uploadIcon", method=RequestMethod.POST)
     public String uploadIcon(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
-    	HttpSession session = request.getSession(false);
-    	User currUser = getCurrUserInSession(session);
-    	String path = session.getServletContext().getRealPath("");
-    	
+    	User currUser = getCurrUserInSession(request);
+    	int id = -1;
     	if(null != currUser) {
-    		int id = currUser.getId();
-    		path = path + PathUtil.getImageOfUserIconPath(id);
+    		id = currUser.getId();
     	}
-
+    	
     	if(!file.isEmpty()) {
     		try {
-    			File dest = new File(path);
+    			userIconFilePath += id + File.separator;
+    			File dest = new File(userIconFilePath);
     			if(!dest.exists()) {
     				dest.mkdirs();
     			}
-				file.transferTo(new File(path+file.getOriginalFilename()));
+				file.transferTo(new File(userIconFilePath + file.getOriginalFilename()));
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error("上传头像IO异常:用户{}", id);
 			}
     	} 
     	
@@ -169,10 +169,11 @@ public class AccountController {
     
     /**
      * 获取session中的用户对象
-     * @param session
+     * @param request
      * @return
      */
-    private User getCurrUserInSession(HttpSession session) {
+    private User getCurrUserInSession(HttpServletRequest request) {
+    	HttpSession session = request.getSession(false);
     	if(null != session) {
     		User user = (User) session.getAttribute("currUser");
     		return user;
