@@ -10,11 +10,15 @@
     <typeAliases>  
         <typeAlias alias="User" type="com.sddtc.model.User"/>  
         <typeAlias alias="Faceword" type="com.sddtc.model.Faceword"/>
-        <typeAlias alias="UserParam" type="com.sddtc.utils.param.UserParam"/>        
+        <typeAlias alias="UserParam" type="com.sddtc.utils.param.UserParam"/>
+        <typeAlias alias="Usermeta" type="com.sddtc.model.Usermeta" />
+        <typeAlias alias="Server" type="com.sddtc.model.Server" />
     </typeAliases>
     
     <mappers>  
        <mapper resource="com/sddtc/mapper/UserMapper.xml" />
        <mapper resource="com/sddtc/mapper/FacewordMapper.xml" />
+       <mapper resource="com/sddtc/mapper/UsermetaMapper.xml" />
+       <mapper resource="com/sddtc/mapper/ServerMapper.xml" />
     </mappers>  
 </configuration>
