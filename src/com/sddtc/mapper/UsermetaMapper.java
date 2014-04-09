@@ -12,7 +12,7 @@ public interface UsermetaMapper {
 	 * 
 	 * @param usermeta
 	 */
-	public void insert(Usermeta usermeta);
+	public void add(Usermeta usermeta);
 
 	/**
 	 * 更新用户资料
