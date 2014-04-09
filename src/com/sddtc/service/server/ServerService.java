@@ -15,4 +15,9 @@ public interface ServerService {
 	 * @return
 	 */
 	public Server get(int type, int valid);
+	
+	/**
+	 * 清空缓存
+	 */
+	public void reload();
 }

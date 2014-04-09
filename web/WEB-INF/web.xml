@@ -42,7 +42,8 @@
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
-            classpath:com/sddtc/spring/spring-config.xml
+            classpath:com/sddtc/spring/spring-config.xml,
+            classpath:com/sddtc/spring/spring-cache-anno.xml
         </param-value>
   </context-param>
   

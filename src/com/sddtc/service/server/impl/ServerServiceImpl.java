@@ -2,6 +2,7 @@ package com.sddtc.service.server.impl;
 
 import javax.annotation.Resource;
 
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +22,10 @@ public class ServerServiceImpl implements ServerService {
 
 	@Cacheable(value = "serverCache", key = "#type")
 	public Server get(int type, int valid) {
-
 		return serverMapper.get(type, valid);
 	}
 
+	@CacheEvict(value = "serverCache", allEntries = true)
+	public void reload() {
+	}
 }
