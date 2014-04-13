@@ -20,12 +20,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sddtc.model.Server;
 import com.sddtc.model.User;
 import com.sddtc.model.Usermeta;
+import com.sddtc.service.server.ServerService;
 import com.sddtc.service.user.UserService;
 import com.sddtc.utils.accounts.factory.Provider;
 import com.sddtc.utils.accounts.factory.SendEmailFactory;
 import com.sddtc.utils.accounts.factory.Sender;
+import com.sddtc.utils.constant.Constants;
+import com.sddtc.utils.constant.ServerConstants;
 import com.sddtc.utils.param.UserParam;
 
 /**
@@ -38,11 +42,17 @@ import com.sddtc.utils.param.UserParam;
 @Controller
 @RequestMapping("/account")
 public class AccountController {
-	private static Logger logger = LoggerFactory
-			.getLogger(AccountController.class);
+	private static Logger logger = LoggerFactory.getLogger(AccountController.class);
+
+	@Value("${file.image.icon.path}")
+	private String userIconFilePath;
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private ServerService serverService;
+
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String register() {
@@ -116,9 +126,25 @@ public class AccountController {
 		return "redirect:/";
 	}
 
+    /*个人资料编辑-begin*/
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String accounts() {
-		return "account/accounts";
+	public ModelAndView accounts(HttpServletRequest request) {
+		ModelAndView mv = new ModelAndView("account/accounts");
+		User currUser = getCurrUserInSession(request);
+		if(null != currUser) {
+			int id = currUser.getId();
+
+			Usermeta meta = userService.getMeta(id);
+			String imageAbsoulutePath = meta.getUser_icon_big();
+			String imagePath = imageAbsoulutePath.substring(imageAbsoulutePath.lastIndexOf(File.separator), imageAbsoulutePath.length());
+			Server server = serverService.get(ServerConstants.TYPE_IMAGE, Constants.VALID);
+			if(null != server) {
+			    imagePath = server.getUri() + File.separator + id + imagePath;
+			    
+			    mv.addObject("icon_big", imagePath);
+			}
+		}
+		return mv;
 	}
 
 	@RequestMapping(value = "update", method = RequestMethod.POST)
@@ -140,9 +166,6 @@ public class AccountController {
 
 		return "account/userIcon";
 	}
-
-	@Value("${file.image.icon.path}")
-	private String userIconFilePath;
 
 	@RequestMapping(value = "uploadIcon", method = RequestMethod.POST)
 	public String uploadIcon(@RequestParam("file") MultipartFile file,

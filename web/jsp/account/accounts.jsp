@@ -31,7 +31,7 @@
 					<td>头像:</td>
 					<td>
 					<img alt="small_icon" src="#" style="margin:10px;float:left">
-					<img alt="big_icon" src="#" style="margin:10px;float:left">
+					<img alt="big_icon" src="${icon_big}" style="margin:10px;float:left">
 					<a href="user_icon" style="margin:10px;float:left">更新</a>
 					</td>
 				</tr>

@@ -4,6 +4,6 @@
 	<select id="get" resultType="Server">
 		select * from t_cp_server
 		where
-		type=#{type} and valid=#{valid}
+		type=#{0} and valid=#{1}
 	</select>
 </mapper>
