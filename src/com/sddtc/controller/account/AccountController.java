@@ -133,8 +133,7 @@ public class AccountController {
 		ModelAndView mv = new ModelAndView("account/accounts");
 		User currUser = getCurrUserInSession(request);
 		if (null != currUser) {
-			int id = currUser.getId();
-			String imagePath = getImageServerPath(id);
+			String imagePath = getImageServerPath(currUser);
 			mv.addObject("icon_big", imagePath);
 		}
 		return mv;
@@ -155,9 +154,14 @@ public class AccountController {
 	}
 
 	@RequestMapping(value = "user_icon", method = RequestMethod.GET)
-	public String updateUserIcon() {
-
-		return "account/userIcon";
+	public ModelAndView updateUserIcon(HttpServletRequest request) {
+		ModelAndView mv = new ModelAndView("account/userIcon");
+		User currUser = getCurrUserInSession(request);
+		if (null != currUser) {
+			String imagePath = getImageServerPath(currUser);
+			mv.addObject("icon_big", imagePath);
+		}
+		return mv;
 	}
 
 	@RequestMapping(value = "uploadIcon", method = RequestMethod.POST)
@@ -219,16 +223,21 @@ public class AccountController {
 
 	/**
 	 * 获取用户的大头像服务器地址
-	 * @param userId
+	 * @param currUser 当前用户
 	 * @return
 	 */
-	private String getImageServerPath(int userId) {
-		Usermeta meta = userService.getMeta(userId);
+	private String getImageServerPath(User currUser) {
+		if(null == currUser) {
+			throw new NullPointerException("当前用户不存在为null");
+		}
+		
+		int id = currUser.getId();
+		Usermeta meta = userService.getMeta(id);
 		String imagePath = null;
 		if (null != meta) {
 			String imageAbsoulutePath = meta.getUser_icon_big();
 
-			if (Strings.isNullOrEmpty(imageAbsoulutePath)) {
+			if (!Strings.isNullOrEmpty(imageAbsoulutePath)) {
 				imagePath = imageAbsoulutePath.substring(
 						imageAbsoulutePath.lastIndexOf(File.separator),
 						imageAbsoulutePath.length());
@@ -236,7 +245,7 @@ public class AccountController {
 			Server server = serverService.get(ServerConstants.TYPE_IMAGE,
 					Constants.VALID);
 			if (null != server) {
-				imagePath = server.getUri() + File.separator + userId
+				imagePath = server.getUri() + File.separator + id
 						+ imagePath;
 
 				return imagePath;
