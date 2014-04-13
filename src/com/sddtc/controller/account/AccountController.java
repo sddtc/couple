@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.common.base.Strings;
 import com.sddtc.model.Server;
 import com.sddtc.model.User;
 import com.sddtc.model.Usermeta;
@@ -42,17 +43,17 @@ import com.sddtc.utils.param.UserParam;
 @Controller
 @RequestMapping("/account")
 public class AccountController {
-	private static Logger logger = LoggerFactory.getLogger(AccountController.class);
+	private static Logger logger = LoggerFactory
+			.getLogger(AccountController.class);
 
 	@Value("${file.image.icon.path}")
 	private String userIconFilePath;
 
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	private ServerService serverService;
-
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String register() {
@@ -126,23 +127,15 @@ public class AccountController {
 		return "redirect:/";
 	}
 
-    /*个人资料编辑-begin*/
+	/* 个人资料编辑-begin */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView accounts(HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView("account/accounts");
 		User currUser = getCurrUserInSession(request);
-		if(null != currUser) {
+		if (null != currUser) {
 			int id = currUser.getId();
-
-			Usermeta meta = userService.getMeta(id);
-			String imageAbsoulutePath = meta.getUser_icon_big();
-			String imagePath = imageAbsoulutePath.substring(imageAbsoulutePath.lastIndexOf(File.separator), imageAbsoulutePath.length());
-			Server server = serverService.get(ServerConstants.TYPE_IMAGE, Constants.VALID);
-			if(null != server) {
-			    imagePath = server.getUri() + File.separator + id + imagePath;
-			    
-			    mv.addObject("icon_big", imagePath);
-			}
+			String imagePath = getImageServerPath(id);
+			mv.addObject("icon_big", imagePath);
 		}
 		return mv;
 	}
@@ -222,5 +215,33 @@ public class AccountController {
 		meta.setUser_icon_big(icon_big);
 
 		userService.addMeta(meta);
+	}
+
+	/**
+	 * 获取用户的大头像服务器地址
+	 * @param userId
+	 * @return
+	 */
+	private String getImageServerPath(int userId) {
+		Usermeta meta = userService.getMeta(userId);
+		String imagePath = null;
+		if (null != meta) {
+			String imageAbsoulutePath = meta.getUser_icon_big();
+
+			if (Strings.isNullOrEmpty(imageAbsoulutePath)) {
+				imagePath = imageAbsoulutePath.substring(
+						imageAbsoulutePath.lastIndexOf(File.separator),
+						imageAbsoulutePath.length());
+			}
+			Server server = serverService.get(ServerConstants.TYPE_IMAGE,
+					Constants.VALID);
+			if (null != server) {
+				imagePath = server.getUri() + File.separator + userId
+						+ imagePath;
+
+				return imagePath;
+			}
+		}
+		return null;
 	}
 }
