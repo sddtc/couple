@@ -5,12 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>${currUser.nick_name}的帐号-上传头像</title>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/public/style.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/account.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/public/style.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/account.css" />
 </head>
 <body>
 	<jsp:include page="../head.jsp" />
@@ -38,7 +35,7 @@
 	</div>
 
 	<script
-		src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+		src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
 	<script src="//code.jquery.com/jquery-latest.js"></script>
 </body>
 </html>

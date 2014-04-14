@@ -3,14 +3,10 @@
 <html lang="zh-cn">
 <head>
 <title>注册 - couple</title>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/public/style.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/account.css" />
-<script
-	src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/public/style.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/account.css" />
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
 <script src="//code.jquery.com/jquery-latest.js"></script>
 </head>
 
