@@ -2,41 +2,31 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-<title>注册 - couple</title>
+<title>登陆 - couple</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/public/style.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/account.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/font-awesome.css">
 </head>
-
 <body id="">
-	<div class="container container-site">
+<div class="container container-site">
 <jsp:include page="../head.jsp" />
 		<div style="height: 40px;"></div>
 		<div style="margin: 10px 20px 20px 20px; min-height: 300px;">
 			<div id="message_div"></div>
-
 			<div id="signup_container" class="">
 				<div id="signup_header">
 					<div id="login_div">
-						<a href="${pageContext.request.contextPath}/account/login/">登
-							陆</a>
+						<a href="${pageContext.request.contextPath}/account/login/">登陆</a>
 					</div>
 					<h1>注 册</h1>
 				</div>
-
-				<form id="signup_form" method="post" class="app_form"
-					onsubmit="return validate(this)">
+				<form id="signup_form" method="post" class="app_form" onsubmit="return validate(this)">
 					<fieldset>
-						<!-- <input name="nick_name" maxlength="30" placeholder="User Name" type="text" class="span5" id="nick_name" />
-            <input id="password1" type="password" placeholder="Password" class="span5" name="password1" />
-            <input id="password2" type="password" placeholder="Confirm Password" class="span5" name="password2" /> -->
-						<input id="email" type="text" placeholder="Email" class="span5"
-							name="login_id" />
+						<input id="email" type="text" placeholder="Email" class="span5" name="login_id" />
 					</fieldset>
 					<p class="grey-text">
-						By clicking "Sign Up", you are indicating that you have read and
-						agree to the <a href="/tos">Terms of Service</a> and <a
-							href="/privacy">Privacy Policy</a>.
+					input your email and get valid url
 					</p>
 					<div class="actions">
 						<button type="submit" class="btn btn-success btn-large">
