@@ -6,7 +6,7 @@
     <title>注册 - couple</title> 
     <meta name="keywords" content="couple" />
     <meta name="description" content="can we be couple." />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/public/style.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/account.css" />
     <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
