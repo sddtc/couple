@@ -11,20 +11,28 @@
 <body>
 <jsp:include page="../head.jsp" />
 
-<div id="board">
+<div id="board" style="margin-top: 50px;">
 <h2>留言版</h2>
-<form name="bdform" action="post">
+<form id="bdform">
 <textarea name="bd_text" style="width:97%;height:50px;margin-bottom: 5px"></textarea>
-<input type="submit" name="bd_submit" value="留言" />
+<input type="submit" value="留言" />
 </form>
-
-<ul id="comments">
-<li id="userIcon"></li>
-<li id="userText"></li>
-</ul>
-
 </div>
-<script src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
 <script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
+<script type="text/javascript">
+$("#bdform").submit(function() {
+	var url = "comment/add";
+	$.ajax({
+		type : "POST",
+		url : url,
+		data : $("#bdform").serialize(),
+		success : function(data) {
+			alert(data);
+		}
+	});
+	return false;
+});
+</script>
 </body>
 </html>
