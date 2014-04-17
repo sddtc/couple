@@ -15,7 +15,7 @@ public class Message {
 	/** 留言者id */
 	private int visitor_id;
 	/** 内容 */
-	private String text;
+	private String content;
 	/** 创建时间 */
 	private Date create_time;
 
@@ -65,18 +65,18 @@ public class Message {
 	}
 
 	/**
-	 * @return the text
+	 * @return the content
 	 */
-	public String getText() {
-		return text;
+	public String getContent() {
+		return content;
 	}
 
 	/**
-	 * @param text
-	 *            the text to set
+	 * @param content
+	 *            the content to set
 	 */
-	public void setText(String text) {
-		this.text = text;
+	public void setContent(String content) {
+		this.content = content;
 	}
 
 	/**
@@ -101,10 +101,8 @@ public class Message {
 	 */
 	@Override
 	public String toString() {
-		return Objects.toStringHelper("留言版")
-				.add("留言者", this.visitor_id)
-				.add("主用户", this.user_id)
-				.add("创建时间", this.create_time)
+		return Objects.toStringHelper("留言版").add("留言者", this.visitor_id)
+				.add("主用户", this.user_id).add("创建时间", this.create_time)
 				.toString();
 	}
 }

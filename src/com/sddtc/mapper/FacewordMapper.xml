@@ -5,7 +5,7 @@
 		SELECT * FROM t_cp_faceword
 	</select>
 	<insert id="add" parameterType="Faceword" useGeneratedKeys="true" keyProperty="id">
-	    INSERT INTO t_cp_faceword(text, create_time, type)
-	    VALUES (#{text}, #{create_time}, #{type})
+	    insert  into t_cp_faceword(text, create_time, type)
+	    values (#{text}, #{create_time}, #{type})
 	</insert>
 </mapper>

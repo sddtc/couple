@@ -2,8 +2,6 @@ package com.sddtc.service.user;
 
 import java.util.List;
 
-import javax.servlet.jsp.tagext.TagInfo;
-
 import com.sddtc.model.Message;
 
 /**
@@ -16,7 +14,7 @@ public interface UserDataService {
 	 * @param userId
 	 * @param text
 	 */
-	public void addMessage(int userId, String text);
+	public void addMessage(Message message);
 
 	/**
 	 * 留言-列举

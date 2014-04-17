@@ -13,6 +13,7 @@
         <typeAlias alias="UserParam" type="com.sddtc.utils.param.UserParam"/>
         <typeAlias alias="Usermeta" type="com.sddtc.model.Usermeta" />
         <typeAlias alias="Server" type="com.sddtc.model.Server" />
+        <typeAlias alias="Message" type="com.sddtc.model.Message" />
     </typeAliases>
     
     <mappers>  
@@ -20,5 +21,6 @@
        <mapper resource="com/sddtc/mapper/FacewordMapper.xml" />
        <mapper resource="com/sddtc/mapper/UsermetaMapper.xml" />
        <mapper resource="com/sddtc/mapper/ServerMapper.xml" />
+       <mapper resource="com/sddtc/mapper/MessageMapper.xml" />
     </mappers>  
 </configuration>

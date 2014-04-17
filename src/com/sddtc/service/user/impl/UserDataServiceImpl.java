@@ -7,13 +7,20 @@ import com.sddtc.service.user.UserDataService;
 
 /**
  * @author sddtc
- *
+ * 用户业务数据相关
+ * 
  */
-public class UserDataServiceImpl implements UserDataService{
+public class UserDataServiceImpl implements UserDataService {
 	@Override
-	public void addMessage(int userId, String text) {
+	public void addMessage(Message message) {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	@Override
+	public void deleteMessage(String id) {
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override
@@ -22,9 +29,4 @@ public class UserDataServiceImpl implements UserDataService{
 		return null;
 	}
 
-	@Override
-	public void deleteMessage(String id) {
-		// TODO Auto-generated method stub
-		
-	}
 }
