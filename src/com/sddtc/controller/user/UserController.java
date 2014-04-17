@@ -42,8 +42,6 @@ public class UserController {
     
     @RequestMapping(value="/user/comment/add", method=RequestMethod.POST)
     public String addComment() {
-    	
-    	
     	return "ok";
     }
 }
