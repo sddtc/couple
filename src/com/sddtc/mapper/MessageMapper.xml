@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sddtc.mapper.MessageMapper">
+	<insert id="add" parameterType="Message">
+		insert into t_cp_message(id, user_id, visitor_id, content, create_time)
+		values (#{id}, #{user_id}, #{visitor_id}, #{content}, #{create_time})
+	</insert>
+
+	<delete id="delete" parameterType="String">
+		delete from t_cp_message where id = #{id}
+	</delete>
+
+	<select id="query" parameterType="int" resultType="Message">
+		select * from t_cp_message where user_id = #{user_id}
+	</select>
+</mapper>
