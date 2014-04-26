@@ -1,5 +1,5 @@
 couple
 ======
 
-couple site
+couple site:
 http://sddtc.github.com/couple
