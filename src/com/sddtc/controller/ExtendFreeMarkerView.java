@@ -21,6 +21,10 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
 /**
+ * 
+ * 扩展freemarker视图层
+ * 为了更灵活的切换不同格式
+ * 加快网站相应速度，对于静态页面和复杂页面的不同相应
  * @author sddtc
  * 
  */
