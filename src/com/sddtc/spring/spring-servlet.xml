@@ -69,7 +69,7 @@
 		</property>
 		<property name="freemarkerSettings">
 			<props>
-				<prop key="template_update_delay">10</prop>
+				<prop key="template_update_delay">0</prop>
 				<prop key="defaultEncoding">UTF-8</prop>
 			</props>
 		</property>
