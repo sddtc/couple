@@ -22,9 +22,8 @@ import freemarker.template.TemplateException;
 
 /**
  * 
- * 扩展freemarker视图层
- * 为了更灵活的切换不同格式
- * 加快网站相应速度，对于静态页面和复杂页面的不同相应
+ * 扩展freemarker视图层 为了更灵活的切换不同格式 加快网站相应速度，对于静态页面和复杂页面的不同相应
+ * 
  * @author sddtc
  * 
  */
@@ -65,7 +64,8 @@ public class ExtendFreeMarkerView extends FreeMarkerView {
 	}
 
 	private void createHTML(Template template, SimpleHash model,
-			HttpServletRequest request, HttpServletResponse response) throws IOException, TemplateException, ServletException {
+			HttpServletRequest request, HttpServletResponse response)
+			throws IOException, TemplateException, ServletException {
 		// 站点根目录的绝对路径
 		String basePath = request.getSession(false).getServletContext()
 				.getRealPath("/");
@@ -93,18 +93,18 @@ public class ExtendFreeMarkerView extends FreeMarkerView {
 		request.getRequestDispatcher(requestHTML).forward(request, response);
 	}
 
-	/** 
-     * 计算要生成的静态文件相对路径. 
-     */  
-    private String getRequestHTML(HttpServletRequest request){  
-        //web应用名称,部署在ROOT目录时为空  
-        String contextPath = request.getContextPath();  
-        //web应用/目录/文件
-        String requestURI = request.getRequestURI();  
-        requestURI = requestURI.replaceFirst(contextPath, "");  
-        //将后缀改为html,稍后将请求转发到此html文件  
-        requestURI = requestURI + "1.html";  
-           
-        return requestURI;  
-    } 
+	/**
+	 * 计算要生成的静态文件相对路径.
+	 */
+	private String getRequestHTML(HttpServletRequest request) {
+		// web应用名称,部署在ROOT目录时为空
+		String contextPath = request.getContextPath();
+		// web应用/目录/文件
+		String requestURI = request.getRequestURI();
+		requestURI = requestURI.replaceFirst(contextPath, "");
+		// 将后缀改为html,稍后将请求转发到此html文件
+		requestURI = requestURI + "1.html";
+
+		return requestURI;
+	}
 }
