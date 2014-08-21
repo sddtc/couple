@@ -2,4 +2,3 @@
 <input type="text" name="text">
 <input type="submit">
 </form>
-持续不断
