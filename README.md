@@ -1,5 +1,5 @@
-couple
+couple --cp
 ======
-
-couple site:
 http://sddtc.github.com/couple
+
+只想捕捉那灵感和热爱
