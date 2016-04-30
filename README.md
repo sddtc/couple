@@ -1,4 +1,4 @@
-couple --cp
+couple
 ======
 http://sddtc.github.com/couple
 

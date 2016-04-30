@@ -1,8 +1,8 @@
 package com.sddtc.mapper;
 
-import java.util.List;
-
 import com.sddtc.model.Faceword;
+
+import java.util.List;
 
 /**
  * @author sddtc

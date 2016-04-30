@@ -1,6 +1,4 @@
-/target/
-.project
-.classpath
-/build/
-/.externalToolBuilders/
-/.settings/
+#idea
+target/
+*.iml
+.idea
