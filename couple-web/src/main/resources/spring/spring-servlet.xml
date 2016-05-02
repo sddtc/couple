@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+         http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+   		 http://www.springframework.org/schema/context
+   		 http://www.springframework.org/schema/context/spring-context-3.1.xsd
+         http://www.springframework.org/schema/mvc
+         http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+    <!-- 控制器所在的包{添加注解的Controller} -->
+    <context:component-scan base-package="com.mogujie.dataapp.recsys.bi"/>
+    <mvc:default-servlet-handler/>
+    <mvc:annotation-driven />
+    <!-- Json返回 乱码处理 -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <bean  class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
+                <bean  class="org.springframework.http.converter.StringHttpMessageConverter">
+                    <property name="supportedMediaTypes">
+                        <list><value>application/json;charset=UTF-8</value></list>
+                    </property>
+                </bean>
+                <bean class="org.springframework.http.converter.ResourceHttpMessageConverter"/>
+                <bean class="org.springframework.http.converter.xml.SourceHttpMessageConverter"/>
+                <bean class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter"/>
+                <bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+    <mvc:resources location="/static/**" mapping="/static/**"/>
+
+    <!--viewresolve-->
+    <bean id="velocityConfigurer"
+          class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <property name="resourceLoaderPath" value="view/" />
+        <property name="velocityProperties">
+            <props>
+                <prop key="input.encoding">utf-8</prop>
+                <prop key="output.encoding">utf-8</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+        <property name="contentType">
+            <value>text/html;charset=UTF-8</value>
+        </property>
+        <property name="layoutUrl" value="layout.html"/>
+        <!--<property name="cache" value="true"/>-->
+        <!--<property name="prefix" value="view/"/>-->
+        <property name="suffix" value=".html"/>
+        <property name="exposeRequestAttributes" value="true"/>
+        <property name="requestContextAttribute" value="requestContext"/>
+        <property name="dateToolAttribute">
+            <value>dateTool</value>
+        </property>
+    </bean>
+
+
+    <!--定义异常处理页面-->
+    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.sql.SQLException">outException</prop>
+                <prop key="java.io.IOException">outException</prop>
+            </props>
+        </property>
+    </bean>
+</beans>
