@@ -23,7 +23,7 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
     <bean name="MapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.mogujie.dataapp.recsys.bi.mappers"/>
+        <property name="basePackage" value="sddtc.couple.mappers"/>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
     <tx:annotation-driven transaction-manager="transactionManager"/>

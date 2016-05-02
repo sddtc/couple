@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sddtc.couple.mappers.CouplePhotoMapper">
+    <select id="get" parameterType="sddtc.couple.request.CouplePhotoRequest"
+            resultType="sddtc.couple.dao.domain.CouplePhoto">
+        select
+        id, memberId,memberType,size,type,url,isDeleted,created,updated
+        from couple_photo
+        where id=#{id}
+    </select>
+
+    <insert id="insert" parameterType="sddtc.couple.dao.domain.CouplePhoto">
+        insert into couple_photo(memberId,memberType,size,type,url,isDeleted,created,updated)
+        values (#{memberId}, #{memberType}, #{size}, #{type}, #{url}, #{isDeleted}, #{created}, #{updated})
+    </insert>
+</mapper>

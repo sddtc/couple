@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sddtc.couple.mappers.CoupleRoleMapper">
+    <select id="get" parameterType="sddtc.couple.request.CoupleRoleRequest"
+            resultType="sddtc.couple.dao.domain.CoupleRole">
+        select
+        id,name,sex,age,isSingle,type,description,sweetie,coupleId,creatorId,photoId,photoUrl,isDeleted,created,updated
+        from couple_role
+        where id=#{id}
+    </select>
+
+    <insert id="insert" parameterType="sddtc.couple.dao.domain.CoupleRole">
+        insert into
+        couple_role(
+        name,sex,age,isSingle,type,
+        description,sweetie,coupleId,creatorId,
+        photoId,photoUrl,isDeleted,created,updated
+        )
+        values (
+        #{name},#{sex},#{age},#{isSingle},#{type},
+        #{description},#{sweetie},#{coupleId},#{creatorId},
+        #{photoId},#{photoUrl},#{isDeleted},#{created},#{updated}
+        )
+    </insert>
+</mapper>

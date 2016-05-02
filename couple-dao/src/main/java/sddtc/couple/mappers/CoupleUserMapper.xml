@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sddtc.couple.mappers.CoupleUserMapper">
+    <select id="get" parameterType="sddtc.couple.request.CoupleUserRequest"
+            resultType="sddtc.couple.dao.domain.CoupleUser">
+        select
+        id,email,`password`,name,sex,birthday,
+        description,sweetie,token,isDeleted,created,
+        updated
+        from couple_user
+        where id=#{id}
+    </select>
+
+    <insert id="insert" parameterType="sddtc.couple.dao.domain.CoupleUser">
+        insert into couple_user(
+        email,`password`,name,sex,birthday,
+        description,sweetie,token,isDeleted,created,
+        updated
+        )
+        values (
+        #{email},#{password},#{name},#{sex},#{birthday},
+        #{description},#{sweetie},#{token},#{isDeleted},#{created},
+        #{updated}
+        )
+    </insert>
+</mapper>
