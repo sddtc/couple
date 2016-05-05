@@ -7,23 +7,36 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import sddtc.couple.controller.BaseController;
 import sddtc.couple.dao.domain.CoupleUser;
 import sddtc.couple.request.CoupleUserRequest;
+import sddtc.couple.response.CoupleUserResponse;
 import sddtc.couple.service.user.CoupleUserServiceImpl;
 
 /**
  * Created by sddtc on 16/5/2.
  */
 @Controller
-@RequestMapping(value="/user")
+@RequestMapping(value = "/user")
 public class CoupleUserController extends BaseController {
-
     @Autowired
     private CoupleUserServiceImpl coupleUserService;
 
-    @RequestMapping(value="/{id}")
+    @RequestMapping(value = "/{id}")
     @ResponseBody
     public String get(CoupleUserRequest request) {
-        CoupleUser user = coupleUserService.get(request);
+        CoupleUserResponse response = new CoupleUserResponse();
 
-        return gson.toJson(user);
+        CoupleUser user = coupleUserService.get(request);
+        response.setCoupleUser(user);
+
+        return gson.toJson(response);
+    }
+
+    @RequestMapping(value = "/insert")
+    @ResponseBody
+    public String insert(CoupleUser user) {
+        CoupleUserResponse response = new CoupleUserResponse();
+
+        coupleUserService.insert(user);
+
+        return gson.toJson(response);
     }
 }
